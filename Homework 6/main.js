@@ -26,16 +26,17 @@ function Cat() {
     return foodAmount + 'гр.';
   }
 
-  this.setDailyNorm = function(amount) {
-    foodAmount = amount;
+  this.DailyNorm = function(amount) {
+    if (!arguments.length) return formatFoodAmount();
+    
     if (amount < 50 || amount > 100) {
       throw new Error("Ошибка!");
     }
-    return formatFoodAmount();
+    foodAmount = amount;
   };
 
   this.feed = function() {
-    console.log('Насыпаем в миску ' + this.setDailyNorm() + 'корма.');
+    console.log('Насыпаем в миску ' + this.DailyNorm() + 'корма.');
   };
 }
 
