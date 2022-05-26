@@ -26,11 +26,20 @@ getTime(['00', '13', '24']);
 /*Задание 3*/
 
 function returnLetter(str) {
-  var text = str.toLowerCase().split('').filter(function(letter) {
-    return 'аоийеёэыуюя'.includes(letter);
-  }).length;
+  
+  var text = str.toLowerCase().split('');
+  var vowels = 'аоийеёэыуюя';
 
-  return text;
+  var result = text.reduce(function(sum, current) {
+    if (vowels.indexOf (current) !==-1) {
+      sum++;
+    }
+
+    return sum;
+
+  }, 0);
+
+  return result;
 }
 
 returnLetter('Привет, меня зовут Артемий!');
