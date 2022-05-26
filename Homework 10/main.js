@@ -1,31 +1,31 @@
 "use strict"
 /* Задание 1*/
 
-function ChangeArr(arr) {
-  var NewArr = arr.map(function(names) {
-    return names = {name: names};
+function changeArr(arr) {
+  var newArr = arr.map(function(names) {
+    return {name: names};
   })
 
-  return NewArr;
+  return newArr;
 }
 
-ChangeArr(['Vasya', 'Archie']);
+changeArr(['Vasya', 'Archie']);
 
 /*Задание 2*/
 
-function GetTime(arr) {
+function getTime(arr) {
   var time = arr.reduce(function(sum, current) {
     return sum + ' : ' + current;
-  })
+  }, ('Текущее время '));
 
-  return 'Текущее время : ' + time;
+  return time;
 }
 
-GetTime(['00', '13', '24']);
+getTime(['00', '13', '24']);
 
 /*Задание 3*/
 
-function ReturnLetter(str) {
+function returnLetter(str) {
   var text = str.toLowerCase().split('').filter(function(letter) {
     return 'аоийеёэыуюя'.includes(letter);
   }).length;
@@ -33,17 +33,17 @@ function ReturnLetter(str) {
   return text;
 }
 
-ReturnLetter('Привет, меня зовут Артемий!');
+returnLetter('Привет, меня зовут Артемий!');
 
 /*Задание 4*/
 
 function countSentencesLetters(str) {
   var arr = str.split(/\!|\...|\?/);
-  var NewArr = arr.filter(function(emptiness) {
+  var newArr = arr.filter(function(emptiness) {
     return emptiness != '';    
   });
  
-  var result = NewArr.map(function(item) {
+  var result = newArr.map(function(item) {
     var sum = item.split('').filter(function(letters) {
       return (letters != ' ') && (letters != ','); 
     }).length;
@@ -51,14 +51,19 @@ function countSentencesLetters(str) {
     return item + ' : ' + 'Letters quantity is: ' + sum;
   });
 
-    return result;
+  var res = result.forEach(function(items) {
+    console.log(items);
+  });
+
+  return res;
+    
   }
 
 countSentencesLetters('Привет, студент! Студент... Как дела, студент?');
 
 /*Доп. задание*/
 
-function FindWords(str) {
+function findWords(str) {
   var arr = str.toLowerCase().split(/\!|\?|\.|\,| /).filter(function(emptiness) {
     return emptiness != '';    
   });
@@ -80,4 +85,4 @@ function FindWords(str) {
   return 'Максимальное число повторений у слова ' + word + ' - ' + repeat;
 }
 
-FindWords('Привет, студент! Студент... Как дела, студент?');
+findWords('Привет, студент! Студент... Как дела, студент?');
