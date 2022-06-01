@@ -1,0 +1,22 @@
+table {
+    border-collapse: collapse;
+    border: 3px solid grey;
+}
+
+td {
+    height: 40px;
+    padding: 10px;
+    border: 1px solid grey;
+    width: 80px;
+
+}
+
+#add {
+    text-align: center;
+}
+
+input {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
